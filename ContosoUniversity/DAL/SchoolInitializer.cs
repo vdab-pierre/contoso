@@ -7,6 +7,7 @@ using System.Web;
 
 namespace ContosoUniversity.DAL
 {
+    //enkel voor development, code die een db dropt enz kan niet in een production omgeving natuurlijk
     public class SchoolInitializer : DropCreateDatabaseIfModelChanges<SchoolContext>
     {
         protected override void Seed(SchoolContext context)
@@ -24,6 +25,7 @@ namespace ContosoUniversity.DAL
 
             students.ForEach(s => context.Students.Add(s));
 
+            //niet nodig van telkens savechanges te doen maar als er een exception is is het gemakkelijk
             context.SaveChanges();
 
             var courses = new List<Course>{
