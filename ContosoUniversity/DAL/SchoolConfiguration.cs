@@ -7,6 +7,7 @@ namespace ContosoUniversity.DAL
     {
         public SchoolConfiguration()
         {
+            //om connection resiliency aan te zetten
             SetExecutionStrategy("System.Data.SqlClient", (() => new SqlAzureExecutionStrategy()));
         }
     }
